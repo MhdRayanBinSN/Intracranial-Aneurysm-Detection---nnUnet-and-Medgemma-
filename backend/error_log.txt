@@ -1,0 +1,10 @@
+Error during prediction:
+Traceback (most recent call last):
+  File "C:\Users\Rayan\Desktop\IA\backend\inference.py", line 176, in predict
+    image_sitk = process_series(dicom_folder) # We need the full image first
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Rayan\Desktop\Main Project\Code\Pretrained detection\sol\nnunetv2\dataset_conversion\kaggle_2025_rsna\official_data_to_nnunet.py", line 187, in process_series
+    sorted_files = [dicom_files[0]]
+                    ~~~~~~~~~~~^^^
+IndexError: list index out of range
+

@@ -1,0 +1,508 @@
+{
+  "total_series": 15,
+  "series_metrics": {
+    "true_positives": 4,
+    "true_negatives": 7,
+    "false_positives": 2,
+    "false_negatives": 2,
+    "accuracy": 0.7333,
+    "precision": 0.6667,
+    "recall": 0.6667,
+    "f1_score": 0.6667
+  },
+  "location_metrics": {
+    "total_ground_truth": 8,
+    "total_detected": 9,
+    "total_correct": 5,
+    "precision": 0.5556,
+    "recall": 0.625,
+    "f1_score": 0.5882
+  },
+  "per_series_results": [
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10004044428023505108375152878107656647",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.0085,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.0025,
+        "Basilar Tip": 0.0032,
+        "Left Posterior Communicating Artery": 0.0031,
+        "Right Posterior Communicating Artery": 0.0034,
+        "Left Infraclinoid Internal Carotid Artery": 0.0037,
+        "Right Infraclinoid Internal Carotid Artery": 0.0026,
+        "Left Supraclinoid Internal Carotid Artery": 0.0069,
+        "Right Supraclinoid Internal Carotid Artery": 0.0053,
+        "Left Middle Cerebral Artery": 0.0085,
+        "Right Middle Cerebral Artery": 0.0025,
+        "Left Anterior Cerebral Artery": 0.0025,
+        "Right Anterior Cerebral Artery": 0.0021,
+        "Anterior Communicating Artery": 0.0036
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 0,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10004684224894397679901841656954650085",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.2185,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.0092,
+        "Basilar Tip": 0.0031,
+        "Left Posterior Communicating Artery": 0.01,
+        "Right Posterior Communicating Artery": 0.0037,
+        "Left Infraclinoid Internal Carotid Artery": 0.0128,
+        "Right Infraclinoid Internal Carotid Artery": 0.0031,
+        "Left Supraclinoid Internal Carotid Artery": 0.1172,
+        "Right Supraclinoid Internal Carotid Artery": 0.0165,
+        "Left Middle Cerebral Artery": 0.0142,
+        "Right Middle Cerebral Artery": 0.0037,
+        "Left Anterior Cerebral Artery": 0.1936,
+        "Right Anterior Cerebral Artery": 0.0138,
+        "Anterior Communicating Artery": 0.2185
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 0,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10005158603912009425635473100344077317",
+      "ground_truth": [
+        "Other Posterior Circulation"
+      ],
+      "is_positive": true,
+      "aneurysm_probability": 0.4485,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.0223,
+        "Basilar Tip": 0.4485,
+        "Left Posterior Communicating Artery": 0.0088,
+        "Right Posterior Communicating Artery": 0.0107,
+        "Left Infraclinoid Internal Carotid Artery": 0.0067,
+        "Right Infraclinoid Internal Carotid Artery": 0.0063,
+        "Left Supraclinoid Internal Carotid Artery": 0.0092,
+        "Right Supraclinoid Internal Carotid Artery": 0.0231,
+        "Left Middle Cerebral Artery": 0.0141,
+        "Right Middle Cerebral Artery": 0.0073,
+        "Left Anterior Cerebral Artery": 0.0054,
+        "Right Anterior Cerebral Artery": 0.0082,
+        "Anterior Communicating Artery": 0.0072
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [
+        "Other Posterior Circulation"
+      ],
+      "num_gt": 1,
+      "num_detected": 0,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10009383108068795488741533244914370182",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.1542,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.0027,
+        "Basilar Tip": 0.0025,
+        "Left Posterior Communicating Artery": 0.0089,
+        "Right Posterior Communicating Artery": 0.0043,
+        "Left Infraclinoid Internal Carotid Artery": 0.0055,
+        "Right Infraclinoid Internal Carotid Artery": 0.0083,
+        "Left Supraclinoid Internal Carotid Artery": 0.0286,
+        "Right Supraclinoid Internal Carotid Artery": 0.1542,
+        "Left Middle Cerebral Artery": 0.0064,
+        "Right Middle Cerebral Artery": 0.0027,
+        "Left Anterior Cerebral Artery": 0.0033,
+        "Right Anterior Cerebral Artery": 0.0023,
+        "Anterior Communicating Artery": 0.0097
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 0,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10012790035410518400400834395242853657",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.6816,
+      "predicted_positive": true,
+      "predictions": {
+        "Other Posterior Circulation": 0.2993,
+        "Basilar Tip": 0.0154,
+        "Left Posterior Communicating Artery": 0.01,
+        "Right Posterior Communicating Artery": 0.007,
+        "Left Infraclinoid Internal Carotid Artery": 0.012,
+        "Right Infraclinoid Internal Carotid Artery": 0.0034,
+        "Left Supraclinoid Internal Carotid Artery": 0.5376,
+        "Right Supraclinoid Internal Carotid Artery": 0.0137,
+        "Left Middle Cerebral Artery": 0.6816,
+        "Right Middle Cerebral Artery": 0.0061,
+        "Left Anterior Cerebral Artery": 0.0085,
+        "Right Anterior Cerebral Artery": 0.0037,
+        "Anterior Communicating Artery": 0.0066
+      },
+      "detected_locations": [
+        "Left Middle Cerebral Artery",
+        "Left Supraclinoid Internal Carotid Artery"
+      ],
+      "correctly_detected": [],
+      "false_positives": [
+        "Left Middle Cerebral Artery",
+        "Left Supraclinoid Internal Carotid Artery"
+      ],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 2,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10014757658335054766479957992112625961",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.2238,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.01,
+        "Basilar Tip": 0.0049,
+        "Left Posterior Communicating Artery": 0.0342,
+        "Right Posterior Communicating Artery": 0.0057,
+        "Left Infraclinoid Internal Carotid Artery": 0.0104,
+        "Right Infraclinoid Internal Carotid Artery": 0.007,
+        "Left Supraclinoid Internal Carotid Artery": 0.156,
+        "Right Supraclinoid Internal Carotid Artery": 0.0324,
+        "Left Middle Cerebral Artery": 0.0158,
+        "Right Middle Cerebral Artery": 0.0042,
+        "Left Anterior Cerebral Artery": 0.2238,
+        "Right Anterior Cerebral Artery": 0.0145,
+        "Anterior Communicating Artery": 0.049
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 0,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10021411248005513321236647460239137906",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.5249,
+      "predicted_positive": true,
+      "predictions": {
+        "Other Posterior Circulation": 0.0159,
+        "Basilar Tip": 0.0064,
+        "Left Posterior Communicating Artery": 0.0468,
+        "Right Posterior Communicating Artery": 0.0105,
+        "Left Infraclinoid Internal Carotid Artery": 0.0211,
+        "Right Infraclinoid Internal Carotid Artery": 0.0098,
+        "Left Supraclinoid Internal Carotid Artery": 0.1942,
+        "Right Supraclinoid Internal Carotid Artery": 0.0327,
+        "Left Middle Cerebral Artery": 0.0186,
+        "Right Middle Cerebral Artery": 0.0056,
+        "Left Anterior Cerebral Artery": 0.521,
+        "Right Anterior Cerebral Artery": 0.02,
+        "Anterior Communicating Artery": 0.5249
+      },
+      "detected_locations": [
+        "Anterior Communicating Artery",
+        "Left Anterior Cerebral Artery"
+      ],
+      "correctly_detected": [],
+      "false_positives": [
+        "Anterior Communicating Artery",
+        "Left Anterior Cerebral Artery"
+      ],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 2,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10022688097731894079510930966432818105",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.0412,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.0026,
+        "Basilar Tip": 0.0029,
+        "Left Posterior Communicating Artery": 0.0045,
+        "Right Posterior Communicating Artery": 0.0028,
+        "Left Infraclinoid Internal Carotid Artery": 0.0045,
+        "Right Infraclinoid Internal Carotid Artery": 0.0025,
+        "Left Supraclinoid Internal Carotid Artery": 0.0412,
+        "Right Supraclinoid Internal Carotid Artery": 0.0109,
+        "Left Middle Cerebral Artery": 0.0048,
+        "Right Middle Cerebral Artery": 0.0027,
+        "Left Anterior Cerebral Artery": 0.0028,
+        "Right Anterior Cerebral Artery": 0.0024,
+        "Anterior Communicating Artery": 0.0062
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 0,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10022796280698534221758473208024838831",
+      "ground_truth": [
+        "Right Middle Cerebral Artery"
+      ],
+      "is_positive": true,
+      "aneurysm_probability": 0.7422,
+      "predicted_positive": true,
+      "predictions": {
+        "Other Posterior Circulation": 0.0056,
+        "Basilar Tip": 0.0043,
+        "Left Posterior Communicating Artery": 0.0077,
+        "Right Posterior Communicating Artery": 0.0052,
+        "Left Infraclinoid Internal Carotid Artery": 0.0101,
+        "Right Infraclinoid Internal Carotid Artery": 0.0073,
+        "Left Supraclinoid Internal Carotid Artery": 0.0452,
+        "Right Supraclinoid Internal Carotid Artery": 0.0101,
+        "Left Middle Cerebral Artery": 0.0105,
+        "Right Middle Cerebral Artery": 0.7422,
+        "Left Anterior Cerebral Artery": 0.0055,
+        "Right Anterior Cerebral Artery": 0.0036,
+        "Anterior Communicating Artery": 0.019
+      },
+      "detected_locations": [
+        "Right Middle Cerebral Artery"
+      ],
+      "correctly_detected": [
+        "Right Middle Cerebral Artery"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 1,
+      "num_detected": 1,
+      "num_correct": 1
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10023411164590664678534044036963716636",
+      "ground_truth": [
+        "Right Middle Cerebral Artery"
+      ],
+      "is_positive": true,
+      "aneurysm_probability": 0.5615,
+      "predicted_positive": true,
+      "predictions": {
+        "Other Posterior Circulation": 0.0088,
+        "Basilar Tip": 0.0058,
+        "Left Posterior Communicating Artery": 0.0043,
+        "Right Posterior Communicating Artery": 0.0051,
+        "Left Infraclinoid Internal Carotid Artery": 0.0096,
+        "Right Infraclinoid Internal Carotid Artery": 0.0093,
+        "Left Supraclinoid Internal Carotid Artery": 0.0151,
+        "Right Supraclinoid Internal Carotid Artery": 0.0174,
+        "Left Middle Cerebral Artery": 0.0161,
+        "Right Middle Cerebral Artery": 0.5615,
+        "Left Anterior Cerebral Artery": 0.0041,
+        "Right Anterior Cerebral Artery": 0.0028,
+        "Anterior Communicating Artery": 0.0141
+      },
+      "detected_locations": [
+        "Right Middle Cerebral Artery"
+      ],
+      "correctly_detected": [
+        "Right Middle Cerebral Artery"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 1,
+      "num_detected": 1,
+      "num_correct": 1
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10030095840917973694487307992374923817",
+      "ground_truth": [
+        "Right Infraclinoid Internal Carotid Artery"
+      ],
+      "is_positive": true,
+      "aneurysm_probability": 0.2249,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.0104,
+        "Basilar Tip": 0.011,
+        "Left Posterior Communicating Artery": 0.092,
+        "Right Posterior Communicating Artery": 0.0172,
+        "Left Infraclinoid Internal Carotid Artery": 0.0231,
+        "Right Infraclinoid Internal Carotid Artery": 0.2249,
+        "Left Supraclinoid Internal Carotid Artery": 0.0805,
+        "Right Supraclinoid Internal Carotid Artery": 0.0411,
+        "Left Middle Cerebral Artery": 0.0089,
+        "Right Middle Cerebral Artery": 0.01,
+        "Left Anterior Cerebral Artery": 0.005,
+        "Right Anterior Cerebral Artery": 0.0038,
+        "Anterior Communicating Artery": 0.0141
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [
+        "Right Infraclinoid Internal Carotid Artery"
+      ],
+      "num_gt": 1,
+      "num_detected": 0,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10030804647049037739144303822498146901",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.2489,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.0114,
+        "Basilar Tip": 0.0035,
+        "Left Posterior Communicating Artery": 0.0075,
+        "Right Posterior Communicating Artery": 0.0033,
+        "Left Infraclinoid Internal Carotid Artery": 0.0111,
+        "Right Infraclinoid Internal Carotid Artery": 0.0043,
+        "Left Supraclinoid Internal Carotid Artery": 0.0473,
+        "Right Supraclinoid Internal Carotid Artery": 0.0273,
+        "Left Middle Cerebral Artery": 0.0149,
+        "Right Middle Cerebral Artery": 0.0042,
+        "Left Anterior Cerebral Artery": 0.2489,
+        "Right Anterior Cerebral Artery": 0.0116,
+        "Anterior Communicating Artery": 0.0208
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 0,
+      "num_correct": 0
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10034081836061566510187499603024895557",
+      "ground_truth": [
+        "Anterior Communicating Artery"
+      ],
+      "is_positive": true,
+      "aneurysm_probability": 0.6719,
+      "predicted_positive": true,
+      "predictions": {
+        "Other Posterior Circulation": 0.0086,
+        "Basilar Tip": 0.0099,
+        "Left Posterior Communicating Artery": 0.0268,
+        "Right Posterior Communicating Artery": 0.0162,
+        "Left Infraclinoid Internal Carotid Artery": 0.0143,
+        "Right Infraclinoid Internal Carotid Artery": 0.005,
+        "Left Supraclinoid Internal Carotid Artery": 0.0811,
+        "Right Supraclinoid Internal Carotid Artery": 0.0168,
+        "Left Middle Cerebral Artery": 0.0196,
+        "Right Middle Cerebral Artery": 0.0066,
+        "Left Anterior Cerebral Artery": 0.1538,
+        "Right Anterior Cerebral Artery": 0.0137,
+        "Anterior Communicating Artery": 0.6719
+      },
+      "detected_locations": [
+        "Anterior Communicating Artery"
+      ],
+      "correctly_detected": [
+        "Anterior Communicating Artery"
+      ],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 1,
+      "num_detected": 1,
+      "num_correct": 1
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10035643165968342618460849823699311381",
+      "ground_truth": [
+        "Right Anterior Cerebral Artery",
+        "Left Middle Cerebral Artery",
+        "Right Supraclinoid Internal Carotid Artery"
+      ],
+      "is_positive": true,
+      "aneurysm_probability": 0.6738,
+      "predicted_positive": true,
+      "predictions": {
+        "Other Posterior Circulation": 0.0104,
+        "Basilar Tip": 0.0172,
+        "Left Posterior Communicating Artery": 0.0186,
+        "Right Posterior Communicating Artery": 0.032,
+        "Left Infraclinoid Internal Carotid Artery": 0.0421,
+        "Right Infraclinoid Internal Carotid Artery": 0.0468,
+        "Left Supraclinoid Internal Carotid Artery": 0.2563,
+        "Right Supraclinoid Internal Carotid Artery": 0.6738,
+        "Left Middle Cerebral Artery": 0.6558,
+        "Right Middle Cerebral Artery": 0.0716,
+        "Left Anterior Cerebral Artery": 0.0574,
+        "Right Anterior Cerebral Artery": 0.0168,
+        "Anterior Communicating Artery": 0.1246
+      },
+      "detected_locations": [
+        "Right Supraclinoid Internal Carotid Artery",
+        "Left Middle Cerebral Artery"
+      ],
+      "correctly_detected": [
+        "Left Middle Cerebral Artery",
+        "Right Supraclinoid Internal Carotid Artery"
+      ],
+      "false_positives": [],
+      "false_negatives": [
+        "Right Anterior Cerebral Artery"
+      ],
+      "num_gt": 3,
+      "num_detected": 2,
+      "num_correct": 2
+    },
+    {
+      "series_id": "1.2.826.0.1.3680043.8.498.10035782880104673269567641444954004745",
+      "ground_truth": [],
+      "is_positive": false,
+      "aneurysm_probability": 0.0084,
+      "predicted_positive": false,
+      "predictions": {
+        "Other Posterior Circulation": 0.0036,
+        "Basilar Tip": 0.0025,
+        "Left Posterior Communicating Artery": 0.003,
+        "Right Posterior Communicating Artery": 0.0024,
+        "Left Infraclinoid Internal Carotid Artery": 0.0038,
+        "Right Infraclinoid Internal Carotid Artery": 0.0025,
+        "Left Supraclinoid Internal Carotid Artery": 0.0055,
+        "Right Supraclinoid Internal Carotid Artery": 0.0041,
+        "Left Middle Cerebral Artery": 0.0083,
+        "Right Middle Cerebral Artery": 0.0035,
+        "Left Anterior Cerebral Artery": 0.0084,
+        "Right Anterior Cerebral Artery": 0.0031,
+        "Anterior Communicating Artery": 0.0054
+      },
+      "detected_locations": [],
+      "correctly_detected": [],
+      "false_positives": [],
+      "false_negatives": [],
+      "num_gt": 0,
+      "num_detected": 0,
+      "num_correct": 0
+    }
+  ]
+}

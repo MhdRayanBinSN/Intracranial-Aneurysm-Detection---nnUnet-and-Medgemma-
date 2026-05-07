@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  :root {
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-200 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar for data tables */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-200 dark:bg-slate-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-400 dark:bg-slate-700 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-500 dark:bg-slate-600;
+  }
+}
+
+/* Component styles */
+@layer components {
+
+  /* Clinical Button Styles - Functional & restrained */
+  .btn {
+    @apply px-4 py-2 rounded border font-medium text-sm transition-colors duration-150 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-950;
+  }
+
+  .btn-primary {
+    @apply btn bg-blue-600 border-blue-500 text-white hover:bg-blue-700 dark:bg-blue-700 dark:border-blue-600 dark:hover:bg-blue-600 focus:ring-blue-500;
+  }
+
+  .btn-secondary {
+    @apply btn bg-white border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-700 dark:hover:text-white focus:ring-slate-500;
+  }
+
+  /* Data Card - High density, clear borders */
+  .card {
+    @apply bg-white border border-slate-200 dark:bg-slate-900 dark:border-slate-800 rounded-sm overflow-hidden;
+  }
+
+  /* Layout Containers */
+  .container-fluid {
+    @apply max-w-[1920px] mx-auto px-6;
+  }
+
+  /* Typography Utilities */
+  .text-mono {
+    font-family: var(--font-mono);
+  }
+
+  .label-text {
+    @apply text-xs uppercase tracking-wider text-slate-500 dark:text-slate-500 font-semibold;
+  }
+
+  .value-text {
+    @apply font-mono text-slate-800 dark:text-slate-100;
+  }
+
+  /* Status Badges */
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium border;
+  }
+
+  .badge-success {
+    @apply bg-emerald-100/50 text-emerald-700 border-emerald-200 dark:bg-emerald-950/30 dark:text-emerald-400 dark:border-emerald-900/50;
+  }
+
+  .badge-warning {
+    @apply bg-amber-100/50 text-amber-700 border-amber-200 dark:bg-amber-950/30 dark:text-amber-400 dark:border-amber-900/50;
+  }
+
+  .badge-danger {
+    @apply bg-rose-100/50 text-rose-700 border-rose-200 dark:bg-rose-950/30 dark:text-rose-400 dark:border-rose-900/50;
+  }
+
+  .badge-neutral {
+    @apply bg-slate-100 text-slate-600 border-slate-200 dark:bg-slate-800 dark:text-slate-400 dark:border-slate-700;
+  }
+
+  /* Table Styles */
+  .data-table {
+    @apply w-full text-sm text-left border-collapse;
+  }
+
+  .data-table th {
+    @apply font-semibold text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 px-4 py-2 bg-slate-50 dark:bg-slate-900/50;
+  }
+
+  .data-table td {
+    @apply border-b border-slate-100 dark:border-slate-800/50 px-4 py-2 text-slate-700 dark:text-slate-300;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-slate-100/50 dark:bg-slate-800/20 text-slate-900 dark:text-white;
+  }
+}
+
+/* Utilities */
+@layer utilities {
+  .grid-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+}

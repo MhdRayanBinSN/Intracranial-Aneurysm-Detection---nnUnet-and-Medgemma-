@@ -1,0 +1,65 @@
+# General Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+.env/
+.venv/
+anaconda3/
+.conda/
+
+# Pytorch
+*.pth
+*.pt
+
+# Project Specific - Large Files & Checkpoints
+backend/models/checkpoint/
+backend/models/*.pth
+backend/models/*.pt
+*.dcm
+*.nii.gz
+*.mha
+*.npz
+*.npy
+
+# Logs and Debug
+*.log
+backend/*.log
+debug_crop.png
+debug_crop_mid.png
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Node modules (Frontend)
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/

@@ -1,0 +1,28 @@
+{
+    "name": "Dataset004_iarsna_crop",
+    "description": "multimodality aneurysm dataset",
+    "file_ending": ".nii.gz",
+    "channel_names": {
+        "0": "MRA+CTA+T1+T2"
+    },
+    "labels": {
+        "background": 0,
+        "Other Posterior Circulation": 1,
+        "Basilar Tip": 2,
+        "Right Posterior Communicating Artery": 3,
+        "Left Posterior Communicating Artery": 4,
+        "Right Infraclinoid Internal Carotid Artery": 5,
+        "Left Infraclinoid Internal Carotid Artery": 6,
+        "Right Supraclinoid Internal Carotid Artery": 7,
+        "Left Supraclinoid Internal Carotid Artery": 8,
+        "Right Middle Cerebral Artery": 9,
+        "Left Middle Cerebral Artery": 10,
+        "Right Anterior Cerebral Artery": 11,
+        "Left Anterior Cerebral Artery": 12,
+        "Anterior Communicating Artery": 13
+    },
+    "numTraining": 4344,
+    "overwrite_image_reader_writer": "SimpleITKIO",
+    "reference": "",
+    "release": ""
+}

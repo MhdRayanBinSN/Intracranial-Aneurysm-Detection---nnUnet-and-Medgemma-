@@ -1,0 +1,136 @@
+{
+  "evaluated_series": 4,
+  "total_series_in_csv": 4348,
+  "evaluation_time_sec": 144.5,
+  "overall": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 1,
+    "tn": 3,
+    "sensitivity": 0.0,
+    "specificity": 1.0,
+    "precision": 0.0,
+    "f1_score": 0.0,
+    "accuracy": 0.75
+  },
+  "per_location": {
+    "Left Infraclinoid Internal Carotid Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Right Infraclinoid Internal Carotid Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Left Supraclinoid Internal Carotid Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Right Supraclinoid Internal Carotid Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Left Middle Cerebral Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Right Middle Cerebral Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Anterior Communicating Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Left Anterior Cerebral Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Right Anterior Cerebral Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Left Posterior Communicating Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Right Posterior Communicating Artery": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Basilar Tip": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "tn": 4,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    },
+    "Other Posterior Circulation": {
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "tn": 3,
+      "sensitivity": 0.0,
+      "precision": 0.0,
+      "f1": 0.0
+    }
+  },
+  "generated_at": "2026-03-05T10:20:02"
+}

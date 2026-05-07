@@ -1,0 +1,26 @@
+
+# Core dependencies
+fastapi==0.104.0
+uvicorn[standard]==0.23.2
+python-multipart==0.0.6
+numpy>=1.24.0,<2.0.0
+pydantic>=2.4.2
+
+# Medical Imaging
+nnunetv2==2.2.1
+SimpleITK>=2.3.0
+nibabel>=5.1.0
+
+# PyTorch (Matching the Docker base image to avoid conflicts)
+# The Docker image already has these installed, but pip will check.
+# We explicitly set versions to match the base image (2.1.0+cu118).
+torch==2.1.0
+torchvision==0.16.0
+torchaudio==2.1.0
+
+# Other dependencies implicitly required by nnU-Net
+batchgenerators>=0.25
+acvl-utils>=0.2
+dynamic-network-architectures>=0.2
+tqdm
+requests

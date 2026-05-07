@@ -1,0 +1,143 @@
+{
+  "summary": {
+    "aneurysm_probability": 0.6738,
+    "risk_level": "MODERATE",
+    "num_detections": 2,
+    "scan_shape": [
+      228,
+      512,
+      512
+    ],
+    "scan_spacing": [
+      0.7,
+      0.475,
+      0.475
+    ]
+  },
+  "detections": [
+    {
+      "location": "Right Supraclinoid Internal Carotid Artery",
+      "probability": 0.6738,
+      "slice": 57,
+      "position": {
+        "x": 225,
+        "y": 219
+      }
+    },
+    {
+      "location": "Left Middle Cerebral Artery",
+      "probability": 0.6558,
+      "slice": 76,
+      "position": {
+        "x": 291,
+        "y": 219
+      }
+    }
+  ],
+  "per_location": {
+    "Other Posterior Circulation": {
+      "probability": 0.0104,
+      "coordinates": {
+        "x": 243,
+        "y": 214,
+        "z": 60
+      }
+    },
+    "Basilar Tip": {
+      "probability": 0.0172,
+      "coordinates": {
+        "x": 227,
+        "y": 219,
+        "z": 56
+      }
+    },
+    "Left Posterior Communicating Artery": {
+      "probability": 0.0186,
+      "coordinates": {
+        "x": 264,
+        "y": 239,
+        "z": 80
+      }
+    },
+    "Right Posterior Communicating Artery": {
+      "probability": 0.032,
+      "coordinates": {
+        "x": 195,
+        "y": 220,
+        "z": 65
+      }
+    },
+    "Left Infraclinoid Internal Carotid Artery": {
+      "probability": 0.042,
+      "coordinates": {
+        "x": 254,
+        "y": 222,
+        "z": 53
+      }
+    },
+    "Right Infraclinoid Internal Carotid Artery": {
+      "probability": 0.0468,
+      "coordinates": {
+        "x": 224,
+        "y": 219,
+        "z": 79
+      }
+    },
+    "Left Supraclinoid Internal Carotid Artery": {
+      "probability": 0.2563,
+      "coordinates": {
+        "x": 277,
+        "y": 216,
+        "z": 59
+      }
+    },
+    "Right Supraclinoid Internal Carotid Artery": {
+      "probability": 0.6738,
+      "coordinates": {
+        "x": 225,
+        "y": 219,
+        "z": 57
+      }
+    },
+    "Left Middle Cerebral Artery": {
+      "probability": 0.6558,
+      "coordinates": {
+        "x": 291,
+        "y": 219,
+        "z": 76
+      }
+    },
+    "Right Middle Cerebral Artery": {
+      "probability": 0.0716,
+      "coordinates": {
+        "x": 261,
+        "y": 224,
+        "z": 76
+      }
+    },
+    "Left Anterior Cerebral Artery": {
+      "probability": 0.0574,
+      "coordinates": {
+        "x": 270,
+        "y": 228,
+        "z": 71
+      }
+    },
+    "Right Anterior Cerebral Artery": {
+      "probability": 0.0168,
+      "coordinates": {
+        "x": 270,
+        "y": 229,
+        "z": 72
+      }
+    },
+    "Anterior Communicating Artery": {
+      "probability": 0.1248,
+      "coordinates": {
+        "x": 224,
+        "y": 212,
+        "z": 56
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: iarsna_detection_backend
+    volumes:
+      # Mount the models directory to persist checkpounts
+      - ./backend/models:/app/models
+      # Mount local backend code for development (optional for prod)
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile #(This assumes a frontend dockerfile exists or will exist)
+    container_name: iarsna_detection_frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:8000
+    depends_on:
+      - backend

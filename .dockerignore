@@ -1,0 +1,24 @@
+# Exclude node modules and virtual environments from build context
+# This is crucial for build speed!
+node_modules/
+backend/venv/
+backend/.venv/
+venv/
+.venv/
+anaconda3/
+.git/
+.gitignore
+
+# Exclude temporary files and logs
+*.log
+backend/*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Note: We DO include the models directory in the ignore
+# because in docker-compose, we mount it as a volume.
+# However, for building the IMAGE for distribution, you might want to include it.
+# For local dev/deployment via compose, excluding it from context + mounting is faster.
+backend/models/
