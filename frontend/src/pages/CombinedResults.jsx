@@ -39,24 +39,11 @@ export default function CombinedResults() {
     })
   }
 
-  const getSummaryText = () => {
-    if (nnunetResult && gemmaResult) {
-      if (nnunetResult.overall_risk === 'High' && gemmaResult.has_findings) {
-        return "Both models are in agreement: high-risk regions have been identified and structural abnormalities are present. Immediate radiologist review is highly recommended."
-      } else if (nnunetResult.overall_risk === 'High' && !gemmaResult.has_findings) {
-        return "Discrepancy detected: nnU-Net identified high-risk segmentation regions, but MedGemma did not find obvious abnormalities. Please review the detailed reports."
-      } else if (nnunetResult.overall_risk !== 'High' && gemmaResult.has_findings) {
-        return "Discrepancy detected: MedGemma identified potential structural abnormalities, while nnU-Net considers the risk level lower. Please review the detailed reports."
-      } else {
-        return "Both models indicate a low probability of critical abnormalities. No high-risk regions or structural findings were automatically detected."
-      }
-    }
-    return "Analysis complete. Please review the available reports below."
-  }
-
   const seriesGT = gemmaResult?.series_ground_truth || null;
   const gemmaLocations = gemmaResult?.findings_by_location ? Object.keys(gemmaResult.findings_by_location) : [];
-  const nnunetCount = nnunetResult?.slice_images?.length || 0;
+  
+  const detectedNnUnet = nnunetResult?.predictions?.filter(p => p.detected && p.location !== 'Aneurysm Present') || [];
+  const detectedGemma = gemmaResult?.findings_by_location ? Object.entries(gemmaResult.findings_by_location) : [];
 
 
   const renderComparisonGraph = () => {
@@ -189,17 +176,6 @@ export default function CombinedResults() {
           </p>
         </motion.div>
 
-        {/* Dynamic Text Summary */}
-        {(nnunetResult || gemmaResult) && (
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} 
-            className="max-w-4xl mx-auto mb-10 p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-center">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-2">Automated Conclusion</h3>
-            <p className="text-lg font-medium text-slate-800 dark:text-slate-200">
-              {getSummaryText()}
-            </p>
-          </motion.div>
-        )}
-
         {/* Error banners */}
         <div className="space-y-3 mb-8">
           {nnunetError && (
@@ -216,11 +192,8 @@ export default function CombinedResults() {
           )}
         </div>
 
-        {/* Ground Truth Analysis Section */}
-        {seriesGT && renderComparisonGraph()}
-
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
 
           {/* ── nnU-Net Card ── */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
@@ -237,25 +210,37 @@ export default function CombinedResults() {
             </div>
 
             {nnunetResult ? (
-               <div className="flex-1">
-                 <div className="mb-6 space-y-3">
-                   <div className="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
-                     <span className="text-slate-500">Overall Risk</span>
-                     <span className={`font-bold ${nnunetResult.overall_risk === 'High' ? 'text-red-500' : nnunetResult.overall_risk === 'Moderate' ? 'text-amber-500' : 'text-emerald-500'}`}>
-                       {nnunetResult.overall_risk}
-                     </span>
+               <div className="flex-1 flex flex-col">
+                 {detectedNnUnet.length > 0 ? (
+                   <div className="mb-6 flex-1">
+                     <div className="flex gap-4 mb-4">
+                       <div className="flex-1 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3 text-center border border-blue-100 dark:border-blue-800/40">
+                         <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{nnunetResult.slice_images?.length || 0}</p>
+                         <p className="text-xs text-slate-500 mt-0.5">Slices Detected</p>
+                       </div>
+                       <div className="flex-1 bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3 text-center border border-blue-100 dark:border-blue-800/40">
+                         <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{detectedNnUnet.length}</p>
+                         <p className="text-xs text-slate-500 mt-0.5">Locations Detected</p>
+                       </div>
+                     </div>
+                     <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Detected Locations</h4>
+                     <div className="flex flex-wrap gap-1.5">
+                       {detectedNnUnet.map((p, i) => (
+                         <span key={i} className="bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300 px-2.5 py-1 rounded-lg text-xs font-medium border border-blue-200/50 dark:border-blue-800/50">
+                           {p.location}
+                         </span>
+                       ))}
+                     </div>
                    </div>
-                   <div className="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
-                     <span className="text-slate-500">Confidence</span>
-                     <span className="font-mono text-slate-700 dark:text-slate-300">{(nnunetResult.confidence * 100).toFixed(1)}%</span>
+                 ) : (
+                   <div className="mb-6 flex-1 flex flex-col items-center justify-center py-6">
+                     <CheckCircleIcon className="w-10 h-10 text-emerald-400 mb-2" />
+                     <p className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">Not Detected</p>
+                     <p className="text-sm text-slate-500 mt-1">No aneurysm regions were identified.</p>
                    </div>
-                   <div className="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
-                     <span className="text-slate-500">Detected Regions</span>
-                     <span className="font-mono text-slate-700 dark:text-slate-300">{nnunetResult.slice_images?.length || 0}</span>
-                   </div>
-                 </div>
+                 )}
                  
-                 <button onClick={navigateToNnunet} className="w-full btn-primary bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2 py-4">
+                 <button onClick={navigateToNnunet} className="w-full btn-primary bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2 py-4 mt-auto">
                    View Detailed Report <ArrowRightIcon className="w-4 h-4" />
                  </button>
                </div>
@@ -281,37 +266,37 @@ export default function CombinedResults() {
             </div>
 
             {gemmaResult ? (
-               <div className="flex-1">
-                 <div className="mb-6 space-y-3">
-                   <div className="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
-                     <span className="text-slate-500">Status</span>
-                     <div className="flex items-center gap-1.5">
-                       {gemmaResult.has_findings ? (
-                         <><ExclamationTriangleIcon className="w-4 h-4 text-red-500" /><span className="font-bold text-red-500">Findings Detected</span></>
-                       ) : (
-                         <><CheckCircleIcon className="w-4 h-4 text-emerald-500" /><span className="font-bold text-emerald-500">Clear</span></>
-                       )}
+               <div className="flex-1 flex flex-col">
+                 {detectedGemma.length > 0 ? (
+                   <div className="mb-6 flex-1">
+                     <div className="flex gap-4 mb-4">
+                       <div className="flex-1 bg-violet-50 dark:bg-violet-900/20 rounded-xl p-3 text-center border border-violet-100 dark:border-violet-800/40">
+                         <p className="text-2xl font-bold text-violet-600 dark:text-violet-400">{gemmaResult.slices_analyzed || 0}</p>
+                         <p className="text-xs text-slate-500 mt-0.5">Slices Detected</p>
+                       </div>
+                       <div className="flex-1 bg-violet-50 dark:bg-violet-900/20 rounded-xl p-3 text-center border border-violet-100 dark:border-violet-800/40">
+                         <p className="text-2xl font-bold text-violet-600 dark:text-violet-400">{detectedGemma.length}</p>
+                         <p className="text-xs text-slate-500 mt-0.5">Locations Detected</p>
+                       </div>
+                     </div>
+                     <h4 className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Detected Locations</h4>
+                     <div className="flex flex-wrap gap-1.5">
+                       {detectedGemma.map(([locName], i) => (
+                         <span key={i} className="bg-violet-100 text-violet-700 dark:bg-violet-900/40 dark:text-violet-300 px-2.5 py-1 rounded-lg text-xs font-medium border border-violet-200/50 dark:border-violet-800/50">
+                           {locName}
+                         </span>
+                       ))}
                      </div>
                    </div>
-                   <div className="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
-                     <span className="text-slate-500">Slices Analyzed</span>
-                     <span className="font-mono text-slate-700 dark:text-slate-300">{gemmaResult.slices_analyzed}</span>
+                 ) : (
+                   <div className="mb-6 flex-1 flex flex-col items-center justify-center py-6">
+                     <CheckCircleIcon className="w-10 h-10 text-emerald-400 mb-2" />
+                     <p className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">Not Detected</p>
+                     <p className="text-sm text-slate-500 mt-1">No aneurysm locations were identified.</p>
                    </div>
-                   <div className="flex justify-between items-center py-2 border-b border-slate-100 dark:border-slate-800">
-                     <span className="text-slate-500">Identified Locations</span>
-                     <span className="font-mono text-slate-700 dark:text-slate-300">{gemmaResult.num_locations || 0}</span>
-                   </div>
-                 </div>
+                 )}
 
-                 <div className="mb-6 p-4 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-sm flex items-start gap-3">
-                   <ShieldExclamationIcon className="w-5 h-5 flex-shrink-0 mt-0.5" />
-                   <div>
-                     <p className="font-bold mb-1">Ground Truth Comparison Available</p>
-                     <p className="opacity-80">View the detailed report to compare detected regions against the confirmed medical dataset (train.csv) for validation.</p>
-                   </div>
-                 </div>
-
-                 <button onClick={navigateToMedGemma} className="w-full btn-primary bg-violet-600 hover:bg-violet-700 text-white flex items-center justify-center gap-2 py-4">
+                 <button onClick={navigateToMedGemma} className="w-full btn-primary bg-violet-600 hover:bg-violet-700 text-white flex items-center justify-center gap-2 py-4 mt-auto">
                    View Detailed Report <ArrowRightIcon className="w-4 h-4" />
                  </button>
                </div>
@@ -323,6 +308,9 @@ export default function CombinedResults() {
           </motion.div>
 
         </div>
+
+        {/* Ground Truth Analysis Section */}
+        {seriesGT && renderComparisonGraph()}
 
       </div>
     </div>

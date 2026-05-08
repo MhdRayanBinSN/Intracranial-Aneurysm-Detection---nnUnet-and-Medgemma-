@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   main_backend:
     build:
@@ -7,8 +5,7 @@ services:
       dockerfile: Dockerfile
     container_name: ia_main_backend
     volumes:
-      # Mount the models directory to persist checkpoints
-      - ./backend/models:/app/models
+      - ./backend:/app
     ports:
       - "8000:8000"
     environment:
@@ -28,8 +25,7 @@ services:
       dockerfile: Dockerfile
     container_name: ia_medgemma_backend
     volumes:
-      # Mount the models directory to persist checkpoints
-      - ./Medgemma/backend/models:/app/models
+      - ./Medgemma/backend:/app
     ports:
       - "8001:8001"
     environment:
@@ -48,6 +44,9 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: ia_frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
     ports:
       - "5174:5174"
       - "5173:5173"

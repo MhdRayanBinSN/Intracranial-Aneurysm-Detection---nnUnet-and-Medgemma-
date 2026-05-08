@@ -5,7 +5,6 @@ Uses the MIC-DKFZ 7th place solution for actual model inference.
 Integrates load_and_crop from the Kaggle solution for proper preprocessing.
 """
 
-from skimage._shared.utils import FailedEstimationAccessError
 import os
 import sys
 from pathlib import Path
@@ -99,7 +98,6 @@ class NNUNetInference:
                 tile_step_size=0.5,
                 use_gaussian=True,
                 use_mirroring=False,  # disable TTA for faster inference
-                perform_everything_on_device=False, # FIX: False to avoid GPU OOM on large volumes (prevents crash during cpu fallback)
                 device=self.device,
                 verbose=True,
                 verbose_preprocessing=True,

@@ -84,7 +84,10 @@ export default function MedGemmaResults() {
   const totalFindings = result.findings?.length || 0
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#09090b] text-slate-800 dark:text-slate-200 font-sans py-12 px-4 selection:bg-blue-500/30 transition-colors">
+    <div className="min-h-screen bg-gradient-to-br from-[#f0f4f8] via-[#e8edf5] to-[#dde4ef] dark:from-[#09090b] dark:to-[#0a0f1a] text-slate-700 dark:text-slate-200 font-sans py-12 px-4 selection:bg-teal-500/30 transition-colors relative">
+      {/* Ambient glow */}
+      <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-teal-400/8 dark:bg-teal-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-400/8 dark:bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
       <div className="max-w-6xl mx-auto">
         {/* Header with Back Button */}
         <motion.div
@@ -94,19 +97,17 @@ export default function MedGemmaResults() {
         >
           <button 
             onClick={() => navigate(-1)}
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-white font-medium transition-colors mb-6 group"
+            className="inline-flex items-center gap-2 text-slate-400 hover:text-teal-700 dark:text-slate-500 dark:hover:text-white font-medium transition-colors mb-6 group"
           >
             <ArrowLeftIcon className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
             Back to Combined Results
           </button>
           
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-100 dark:border-blue-500/20 flex items-center justify-center shadow-sm">
-              <img src="/medgemma-icon.png" alt="MedGemma" className="w-8 h-8 object-contain rounded-md" />
-            </div>
+            
             <div>
               <h1 className="text-3xl font-bold text-slate-800 dark:text-white tracking-tight">
-                <span className="text-blue-500 dark:text-blue-400">Analysis</span> Results
+                <span className="text-teal-600 dark:text-teal-400">Analysis</span> Results
               </h1>
               <p className="text-slate-400 dark:text-slate-500 font-medium text-sm mt-1">
                 AI-Powered Intracranial Aneurysm Detection Report
@@ -123,15 +124,15 @@ export default function MedGemmaResults() {
             transition={{ delay: 0.1 }}
             className="grid grid-cols-2 md:grid-cols-5 gap-4"
           >
-            <div className="bg-white dark:bg-[#111113] border border-slate-100 dark:border-white/5 shadow-sm dark:shadow-none rounded-xl p-5 text-center transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center mx-auto mb-3">
-                <BeakerIcon className="w-5 h-5 text-blue-400 dark:text-blue-400" />
+            <div className="bg-white/70 dark:bg-[#111827]/80 border border-white/60 dark:border-white/5 backdrop-blur-xl rounded-2xl p-5 text-center shadow-lg shadow-slate-900/5 dark:shadow-none hover:shadow-xl hover:shadow-slate-900/8 transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-500/10 flex items-center justify-center mx-auto mb-3">
+                <BeakerIcon className="w-5 h-5 text-teal-600 dark:text-teal-400" />
               </div>
-              <p className="text-2xl font-bold text-blue-400 dark:text-blue-400">{result.slices_analyzed}</p>
-              <p className="text-xs text-slate-400 dark:text-slate-500 font-medium mt-1">Slices Analyzed</p>
+              <p className="text-2xl font-bold text-teal-600 dark:text-teal-400">{result.slices_analyzed}</p>
+              <p className="text-xs text-slate-500 font-medium mt-1">Slices Analyzed</p>
             </div>
             
-            <div className="bg-white dark:bg-[#111113] border border-slate-100 dark:border-white/5 shadow-sm dark:shadow-none rounded-xl p-5 text-center transition-colors">
+            <div className="bg-white/70 dark:bg-[#111827]/80 border border-white/60 dark:border-white/5 backdrop-blur-xl rounded-2xl p-5 text-center shadow-lg shadow-slate-900/5 dark:shadow-none hover:shadow-xl hover:shadow-slate-900/8 transition-all duration-300">
               <div className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-3 ${
                 result.has_findings ? 'bg-rose-50 dark:bg-rose-500/10' : 'bg-emerald-50 dark:bg-emerald-500/10'
               }`}>
@@ -140,10 +141,10 @@ export default function MedGemmaResults() {
               <p className={`text-2xl font-bold ${result.has_findings ? 'text-red-500 dark:text-red-400' : 'text-emerald-500 dark:text-emerald-400'}`}>
                 {result.num_locations || 0}
               </p>
-              <p className="text-xs text-slate-400 dark:text-slate-500 font-medium mt-1">Locations</p>
+              <p className="text-xs text-slate-500 font-medium mt-1">Locations</p>
             </div>
 
-            <div className="bg-white dark:bg-[#111113] border border-slate-100 dark:border-white/5 shadow-sm dark:shadow-none rounded-xl p-5 text-center transition-colors">
+            <div className="bg-white/70 dark:bg-[#111827]/80 border border-white/60 dark:border-white/5 backdrop-blur-xl rounded-2xl p-5 text-center shadow-lg shadow-slate-900/5 dark:shadow-none hover:shadow-xl hover:shadow-slate-900/8 transition-all duration-300">
               <div className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-3 ${
                 result.has_findings ? 'bg-rose-50 dark:bg-rose-500/10' : 'bg-emerald-50 dark:bg-emerald-500/10'
               }`}>
@@ -156,18 +157,18 @@ export default function MedGemmaResults() {
               <p className={`text-2xl font-bold ${result.has_findings ? 'text-red-500 dark:text-red-400' : 'text-emerald-500 dark:text-emerald-400'}`}>
                 {totalFindings}
               </p>
-              <p className="text-xs text-slate-400 dark:text-slate-500 font-medium mt-1">Detected Slices</p>
+              <p className="text-xs text-slate-500 font-medium mt-1">Detected Slices</p>
             </div>
             
-            <div className="bg-white dark:bg-[#111113] border border-slate-100 dark:border-white/5 shadow-sm dark:shadow-none rounded-xl p-5 text-center transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center mx-auto mb-3">
-                <ClockIcon className="w-5 h-5 text-blue-400 dark:text-blue-400" />
+            <div className="bg-white/70 dark:bg-[#111827]/80 border border-white/60 dark:border-white/5 backdrop-blur-xl rounded-2xl p-5 text-center shadow-lg shadow-slate-900/5 dark:shadow-none hover:shadow-xl hover:shadow-slate-900/8 transition-all duration-300">
+              <div className="w-10 h-10 rounded-lg bg-teal-100 dark:bg-teal-500/10 flex items-center justify-center mx-auto mb-3">
+                <ClockIcon className="w-5 h-5 text-teal-600 dark:text-teal-400" />
               </div>
-              <p className="text-2xl font-bold text-blue-400 dark:text-blue-400">{result.processing_time?.toFixed(1)}s</p>
-              <p className="text-xs text-slate-400 dark:text-slate-500 font-medium mt-1">Processing Time</p>
+              <p className="text-2xl font-bold text-teal-600 dark:text-teal-400">{result.processing_time?.toFixed(1)}s</p>
+              <p className="text-xs text-slate-500 font-medium mt-1">Processing Time</p>
             </div>
 
-            <div className="bg-white dark:bg-[#111113] border border-slate-100 dark:border-white/5 shadow-sm dark:shadow-none rounded-xl p-5 text-center transition-colors">
+            <div className="bg-white/70 dark:bg-[#111827]/80 border border-white/60 dark:border-white/5 backdrop-blur-xl rounded-2xl p-5 text-center shadow-lg shadow-slate-900/5 dark:shadow-none hover:shadow-xl hover:shadow-slate-900/8 transition-all duration-300">
               <div className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-3 ${
                 result.has_findings ? 'bg-rose-50 dark:bg-rose-500/10' : 'bg-emerald-50 dark:bg-emerald-500/10'
               }`}>
@@ -176,7 +177,7 @@ export default function MedGemmaResults() {
               <p className={`text-2xl font-bold ${result.has_findings ? 'text-red-500 dark:text-red-400' : 'text-emerald-500 dark:text-emerald-400'}`}>
                 {result.has_findings ? 'Detected' : 'Clear'}
               </p>
-              <p className="text-xs text-slate-400 dark:text-slate-500 font-medium mt-1">Status</p>
+              <p className="text-xs text-slate-500 font-medium mt-1">Status</p>
             </div>
           </motion.div>
 
@@ -185,10 +186,10 @@ export default function MedGemmaResults() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className={`p-4 border-l-4 shadow-sm dark:shadow-none transition-colors ${
+            className={`p-5 rounded-2xl transition-colors backdrop-blur-xl ${
               result.has_findings 
-                ? 'border-red-500 bg-red-50 dark:bg-red-500/10 dark:border-red-500/50'
-                : 'border-emerald-500 bg-emerald-50 dark:bg-emerald-500/10 dark:border-emerald-500/50'
+                ? 'bg-rose-50/80 dark:bg-rose-500/10 border border-rose-200/60 dark:border-rose-500/20 shadow-lg shadow-rose-500/5'
+                : 'bg-emerald-50/80 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/20 shadow-lg shadow-emerald-500/5'
             }`}
           >
             <div className="flex items-center gap-3">
@@ -215,16 +216,16 @@ export default function MedGemmaResults() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-white dark:bg-[#111113] border border-slate-100 dark:border-white/5 shadow-sm dark:shadow-none rounded-xl p-6 transition-colors"
+            className="bg-white/70 dark:bg-[#111827]/80 border border-white/60 dark:border-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-lg shadow-slate-900/5 dark:shadow-none transition-colors"
           >
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center">
-                <DocumentTextIcon className="w-5 h-5 text-blue-400 dark:text-blue-400" />
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-500 to-cyan-600 flex items-center justify-center shadow-md shadow-teal-500/20">
+                <DocumentTextIcon className="w-5 h-5 text-white" />
               </div>
               <h2 className="text-lg font-bold text-slate-800 dark:text-white">AI Analysis Report</h2>
             </div>
             
-            <div className="bg-slate-500 dark:bg-slate-800/50 dark:border dark:border-white/10 rounded-xl p-6 shadow-inner dark:shadow-none space-y-4 text-white dark:text-slate-200 transition-colors">
+            <div className="bg-gradient-to-br from-[#1e293b] to-[#0f172a] border border-slate-700/50 dark:border-white/10 rounded-2xl p-6 space-y-4 text-slate-100 dark:text-slate-200 shadow-inner">
               {/* Report Title */}
               <div className="flex items-center gap-2 pb-3 border-b border-slate-400/30 dark:border-white/10">
                 <ShieldExclamationIcon className="w-5 h-5 text-blue-200 dark:text-blue-400" />
@@ -327,12 +328,12 @@ export default function MedGemmaResults() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + locIdx * 0.05 }}
-                    className="bg-white dark:bg-[#111113] border border-slate-200 dark:border-white/10 shadow-sm dark:shadow-none rounded-xl overflow-hidden transition-colors"
+                    className="bg-white/70 dark:bg-[#111827]/80 border border-white/60 dark:border-white/8 backdrop-blur-xl rounded-2xl overflow-hidden shadow-lg shadow-slate-900/5 dark:shadow-none transition-all duration-300 hover:shadow-xl"
                   >
                     {/* Location Header - Clickable */}
                     <button
                       onClick={() => toggleLocation(locationName)}
-                      className="w-full flex items-center justify-between p-5 hover:bg-slate-50 dark:hover:bg-white/5 transition-colors text-left border-b border-slate-100 dark:border-white/5 last:border-0"
+                      className="w-full flex items-center justify-between p-5 hover:bg-teal-50/50 dark:hover:bg-white/5 transition-colors text-left border-b border-slate-100/50 dark:border-white/5 last:border-0"
                     >
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-500/10 border border-red-100 dark:border-red-500/20 flex items-center justify-center">
@@ -382,7 +383,7 @@ export default function MedGemmaResults() {
                                   onClick={() => setSelectedSlice(slice)}
                                 >
                                   {/* Thumbnail */}
-                                  <div className="relative aspect-square rounded-xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-black shadow-sm group-hover:border-blue-400 dark:group-hover:border-blue-500 group-hover:shadow-md transition-all">
+                                  <div className="relative aspect-square rounded-xl overflow-hidden border border-slate-200/60 dark:border-white/10 bg-slate-100 dark:bg-black shadow-sm group-hover:border-teal-400 dark:group-hover:border-teal-500 group-hover:shadow-lg group-hover:shadow-teal-500/10 transition-all duration-300">
                                     {slice.image ? (
                                       <img 
                                         src={resolveImageUrl(slice.image)} 
@@ -440,7 +441,7 @@ export default function MedGemmaResults() {
                   initial={{ opacity: 0, scale: 0.95, y: 10 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                  className="bg-white dark:bg-[#111113] border border-slate-200 dark:border-white/10 shadow-2xl rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                  className="bg-white/95 dark:bg-[#111827] border border-white/60 dark:border-white/10 shadow-2xl backdrop-blur-xl rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <div className="flex justify-between items-start mb-6">
@@ -553,7 +554,7 @@ export default function MedGemmaResults() {
           >
             <button 
               onClick={() => navigate(-1)}
-              className="px-6 py-2.5 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 font-bold rounded-xl shadow-sm inline-flex items-center gap-2 transition-colors"
+              className="px-6 py-3 bg-gradient-to-r from-teal-500 to-cyan-600 dark:from-teal-600 dark:to-cyan-700 hover:from-teal-600 hover:to-cyan-700 text-white font-bold rounded-xl shadow-lg shadow-teal-500/20 inline-flex items-center gap-2 transition-all duration-300 hover:shadow-xl hover:shadow-teal-500/30"
             >
               <ArrowLeftIcon className="w-4 h-4" />
               Back to Summary
