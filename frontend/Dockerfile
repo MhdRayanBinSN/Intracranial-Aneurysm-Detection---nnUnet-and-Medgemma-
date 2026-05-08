@@ -2,17 +2,16 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy package files
-COPY package.json package-lock.json ./
+# Copy package files and install dependencies
+COPY package*.json ./
+RUN npm install
 
-# Install dependencies
-RUN npm ci
-
-# Copy source
+# Copy source code
 COPY . .
 
-# Expose dev port
+# Expose Vite ports
 EXPOSE 5173
+EXPOSE 5174
 
-# Start dev server with host binding
-CMD ["npm", "run", "dev", "--", "--host"]
+# Run the Vite development server exposing it to the network
+CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]

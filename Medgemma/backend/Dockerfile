@@ -1,33 +1,27 @@
+FROM pytorch/pytorch:2.1.0-cuda11.8-cudnn8-runtime
 
-# Backend Dockerfile
-FROM python:3.10-slim
-
-# Set environment variables
-ENV PYTHONDONTWRITEBYTECODE=1
+ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
 
-# Install system dependencies
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgl1 \
-    libglib2.0-0 \
-    && rm -rf /var/lib/apt/lists/*
-
-
-# Set work directory
 WORKDIR /app
 
-# Install Python dependencies
-COPY backend/requirements.txt .
+# Install system dependencies needed for OpenCV, etc.
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Cache and install Python dependencies
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy source code
-COPY backend/ ./backend/
-COPY ml/ ./ml/
-COPY medgemma/ ./medgemma/
+COPY . .
 
-# Expose port
-EXPOSE 8000
+# Expose the API port (MedGemma usually runs on 8001 based on your setup)
+EXPOSE 8001
 
-# Run the application
-CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+# Run the backend
+CMD ["python", "main.py"]
